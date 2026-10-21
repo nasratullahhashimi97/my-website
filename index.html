@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexturn Digital Solutions</title>
+
+<style>
+:root {
+    --navy: #071b3d;
+    --blue: #155eef;
+    --yellow: #ffc928;
+    --light: #f4f8ff;
+    --text: #182641;
+    --muted: #63718a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+button, .btn {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px #0002;
+}
+
+nav {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.logo span {
+    color: var(--yellow);
+}
+
+.logo small {
+    display: block;
+    font-size: 11px;
+    color: #c6d5ee;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    transition: color .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--yellow);
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    color: white;
+    border: 0;
+    font-size: 28px;
+}
+
+.btn {
+    display: inline-block;
+    border: 0;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px #0002;
+}
+
+.btn-yellow {
+    background: var(--yellow);
+    color: var(--navy);
+}
+
+.btn-blue {
+    background: var(--blue);
+    color: white;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+}
+
+.hero {
+    color: white;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, #071b3df2 0%, #071b3dce 48%, #071b3d40 100%),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding: 85px 0;
+    animation: appear .8s ease both;
+}
+
+.eyebrow {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5.5vw, 64px);
+    line-height: 1.12;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--yellow);
+}
+
+.hero p {
+    max-width: 520px;
+    color: #e0e9f9;
+    font-size: 17px;
+    margin-bottom: 28px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+section {
+    padding: 85px 0;
+    scroll-margin-top: 76px;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 42px;
+}
+
+.section-label {
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-heading h2,
+.about-text h2,
+.contact-info h2 {
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.25;
+    margin: 10px 0 14px;
+}
+
+.section-heading p,
+.muted {
+    color: var(--muted);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.service-card {
+    padding: 28px 22px;
+    border: 1px solid #e3eaf5;
+    border-radius: 15px;
+    background: white;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.service-card:hover,
+.project-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px #122c5215;
+}
+
+.service-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: #eaf1ff;
+    color: var(--blue);
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.about {
+    background: var(--light);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.about-image img {
+    display: block;
+    width: 100%;
+    min-height: 330px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 15px 15px 0 #dbe7ff;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    margin: 25px 0;
+}
+
+.features span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.features span::before {
+    content: "✓";
+    color: var(--blue);
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    overflow: hidden;
+    border: 1px solid #e4eaf3;
+    border-radius: 16px;
+    background: white;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.project-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: 22px;
+}
+
+.project-info p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 7px 0 15px;
+}
+
+.project-type {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.testimonials {
+    background: var(--light);
+}
+
+.quote-card {
+    background: white;
+    border: 1px solid #e5ebf5;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.quote-mark {
+    color: var(--blue);
+    font-size: 50px;
+    line-height: 1;
+}
+
+.quote-card p {
+    font-size: 18px;
+    color: var(--muted);
+    margin: 15px 0;
+}
+
+.stars {
+    color: #e5a900;
+    letter-spacing: 3px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 55px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.contact-detail {
+    margin: 20px 0;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--light);
+}
+
+.contact-detail strong {
+    display: block;
+    color: var(--navy);
+}
+
+.contact-form {
+    padding: 30px;
+    background: white;
+    border: 1px solid #e2e9f4;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px #071b3d09;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d7dfec;
+    border-radius: 9px;
+    background: #fbfcff;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px #155eef18;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 125px;
+}
+
+.form-message {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+footer {
+    background: var(--navy);
+    color: white;
+    padding: 35px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer p {
+    color: #b7c6dd;
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: var(--yellow);
+}
+
+.back-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 900;
+    display: none;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 22px;
+    box-shadow: 0 5px 18px #0002;
+}
+
+.back-top.show {
+    display: block;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .about-grid {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 650px) {
+    nav {
+        min-height: 70px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 22px 5%;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 15px;
+        padding: 12px 0;
+        border-bottom: 1px solid #ffffff15;
+    }
+
+    .nav-links .btn {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .hero {
+        min-height: 500px;
+        background-position: 60% center;
+    }
+
+    .hero-content {
+        padding: 65px 0;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .services-grid,
+    .portfolio-grid,
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image img {
+        min-height: 250px;
+    }
+
+    .project-card img {
+        height: 210px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+        <a href="#home" class="logo">
+            <span>N</span> Nexturn
+            <small> DIGITAL SOLUTIONS</small>
+        </a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="navLinks">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="btn btn-yellow">Get Started →</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <span class="eyebrow">Welcome to Nexturn</span>
+            <h1>We Build Modern <span>Web Solutions</span></h1>
+            <p>
+                We create beautiful, fast and responsive websites
+                for small businesses and individuals. Let's turn
+                your ideas into reality.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-yellow">
+                    Start Your Project →
+                </a>
+                <a href="#about" class="btn btn-outline">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="section-label">Our Services</span>
+            <h2>What We Offer</h2>
+            <p>
+                Practical website solutions designed to help
+                your business grow online.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <article class="service-card reveal">
+                <div class="service-icon">⌘</div>
+                <h3>Website Development</h3>
+                <p>Modern websites built with HTML, CSS and JavaScript.</p>
+            </article>
+
+            <article class="service-card reveal">
+                <div class="service-icon">✦</div>
+                <h3>UI/UX Design</h3>
+                <p>Clean layouts that help visitors find what they need.</p>
+            </article>
+
+            <article class="service-card reveal">
+                <div class="service-icon">▣</div>
+                <h3>Responsive Design</h3>
+                <p>Layouts designed for phones, tablets and computers.</p>
+            </article>
+
+            <article class="service-card reveal">
+                <div class="service-icon">⚙</div>
+                <h3>Website Updates</h3>
+                <p>Small improvements to existing websites and pages.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container about-grid">
+        <div class="about-image reveal">
+            <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85"
+                alt="A bright modern workspace"
+                loading="lazy">
+        </div>
+
+        <div class="about-text reveal">
+            <span class="section-label">About Us</span>
+            <h2>Small Team. <br>Big Ideas.</h2>
+            <p>
+                Nexturn is a growing digital brand focused on
+                creating attractive and useful websites for
+                small businesses, independent professionals
+                and personal brands.
+            </p>
+            <p>
+                Our goal is simple: make it easier for businesses
+                to present their services online with a clean
+                design and a user-friendly experience.
+            </p>
+
+            <div class="features">
+                <span>Affordable Solutions</span>
+                <span>Responsive Layouts</span>
+                <span>Clear Communication</span>
+                <span>Attention to Detail</span>
+            </div>
+
+            <a href="#contact" class="btn btn-blue">Let's Talk →</a>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="section-label">Our Portfolio</span>
+            <h2>Selected Projects</h2>
+            <p>
+                Sample concepts that demonstrate different
+                website styles and layouts.
+            </p>
+        </div>
+
+        <div class="portfolio-grid">
+            <article class="project-card reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85"
+                    alt="Education website concept"
+                    loading="lazy">
+                <div class="project-info">
+                    <span class="project-type">Education</span>
+                    <h3>English Institute Website</h3>
+                    <p>
+                        A sample design for a language school,
+                        with course information and contact details.
+                    </p>
+                    <a href="#contact">Discuss a similar project →</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85"
+                    alt="Business office website concept"
+                    loading="lazy">
+                <div class="project-info">
+                    <span class="project-type">Small Business</span>
+                    <h3>Business Landing Page</h3>
+                    <p>
+                        A clean landing page for presenting
+                        a business, its services and its value.
+                    </p>
+                    <a href="#contact">Discuss a similar project →</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85"
+                    alt="Website analytics displayed on a screen"
+                    loading="lazy">
+                <div class="project-info">
+                    <span class="project-type">Professional</span>
+                    <h3>Personal Portfolio</h3>
+                    <p>
+                        A portfolio concept for displaying
+                        skills, projects and professional details.
+                    </p>
+                    <a href="#contact">Discuss a similar project →</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85"
+                    alt="Retail shop interior"
+                    loading="lazy">
+                <div class="project-info">
+                    <span class="project-type">Retail</span>
+                    <h3>Small Shop Website</h3>
+                    <p>
+                        A simple business showcase for products,
+                        store information and customer inquiries.
+                    </p>
+                    <a href="#contact">Discuss a similar project →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="section-label">Why Choose Us</span>
+            <h2>What Matters to Us</h2>
+            <p>
+                Every project deserves care, honest communication
+                and attention to the customer's goals.
+            </p>
+        </div>
+
+        <div class="quote-card reveal">
+            <div class="quote-mark">“</div>
+            <p id="quoteText">
+                A great website should be easy to use, look
+                professional and help people understand your business.
+            </p>
+            <strong id="quoteAuthor">Our Approach</strong>
+            <div class="stars">★★★★★</div>
+            <div style="margin-top:20px">
+                <button class="btn btn-blue" id="nextQuote"
+                        type="button">Next Message →</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container contact-grid">
+        <div class="contact-info reveal">
+            <span class="section-label">Get In Touch</span>
+            <h2>Have a Project in Mind?</h2>
+            <p>
+                Tell us what you need. We can discuss a simple
+                website that fits your goals and budget.
+            </p>
+
+            <div class="contact-detail">
+                <strong>✉ Email</strong>
+                <span>hello@nexturn.example</span>
+            </div>
+
+            <div class="contact-detail">
+                <strong>⌖ Location</strong>
+                <span>Nangarhar, Afghanistan</span>
+            </div>
+
+            <p class="muted">
+                Please replace the example email with your
+                real business email before publishing.
+            </p>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input id="name" name="name" type="text"
+                           placeholder="Enter your name"
+                           required minlength="2">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input id="email" name="email" type="email"
+                           placeholder="you@example.com"
+                           required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="service">What Do You Need?</label>
+                <select id="service" name="service">
+                    <option value="Business website">Business website</option>
+                    <option value="Landing page">Landing page</option>
+                    <option value="Portfolio website">Portfolio website</option>
+                    <option value="Website improvement">Website improvement</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message"
+                          placeholder="Tell us about your project..."
+                          required minlength="10"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-yellow">
+                Prepare Email →
+            </button>
+
+            <p class="form-message" id="formMessage"
+               role="status" aria-live="polite"></p>
+        </form>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div>
+            <a href="#home" class="logo">
+                <span>N</span> Nexturn
+                <small>DIGITAL SOLUTIONS</small>
+            </a>
+            <p style="margin-top:12px">Build Today. Grow Tomorrow.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <p>© <span id="year"></span> Nexturn. All rights reserved.</p>
+    </div>
+</footer>
+
+<button class="back-top" id="backTop"
+        aria-label="Back to top" type="button">↑</button>
+
+<script>
+"use strict";
+
+// Mobile navigation menu
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+// Close mobile menu after clicking a link
+navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+    });
+});
+
+// Current year in footer
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// Reveal sections when they enter the screen
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
+} else {
+    revealElements.forEach(function (element) {
+        element.classList.add("visible");
+    });
+}
+
+// Simple interactive messages, not customer testimonials
+const messages = [
+    {
+        text: "A great website should be easy to use, look professional and help people understand your business.",
+        author: "Our Approach"
+    },
+    {
+        text: "Clear communication and a well-planned design are important parts of every successful project.",
+        author: "Our Values"
+    },
+    {
+        text: "Every business is different. Your website should reflect your goals, services and customers.",
+        author: "Our Promise"
+    }
+];
+
+let currentMessage = 0;
+
+document.getElementById("nextQuote").addEventListener("click", function () {
+    currentMessage = (currentMessage + 1) % messages.length;
+
+    document.getElementById("quoteText").textContent =
+        messages[currentMessage].text;
+
+    document.getElementById("quoteAuthor").textContent =
+        messages[currentMessage].author;
+});
+
+// Back to top button
+const backTop = document.getElementById("backTop");
+
+window.addEventListener("scroll", function () {
+    backTop.classList.toggle("show", window.scrollY > 450);
+});
+
+backTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Contact form validation and email preparation
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+
+contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+    }
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+
+    const subject = encodeURIComponent("Website inquiry: " + service);
+    const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Service: " + service + "\n\n" +
+        "Message:\n" + message
+    );
+
+    // Replace this placeholder with your real email address.
+    const businessEmail = "hello@nexturn.example";
+
+    if (businessEmail.endsWith(".example")) {
+        formMessage.textContent =
+            "The form works, but first replace hello@nexturn.example in the code with your real email address.";
+        formMessage.style.color = "#b45309";
+        return;
+    }
+
+    formMessage.textContent = "Opening your email application...";
+    formMessage.style.color = "#155eef";
+
+    window.location.href =
+        "mailto:" + businessEmail +
+        "?subject=" + subject +
+        "&body=" + body;
+});
+</script>
+
+</body>
+</html>
